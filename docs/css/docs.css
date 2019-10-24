@@ -544,6 +544,11 @@ template {
   --color-primary-900: hsl(240, 100%, 10%);
 }
 
+/* Map Design Tokens to SCSS Variables for easier SCSS design
+   ========================================================================== */
+/* Mixins & Functions
+   ========================================================================== */
+/* Text Preset Mixins */
 /* Base Styling
    ========================================================================== */
 html {
@@ -560,56 +565,66 @@ body {
 
 /* Components
    ========================================================================== */
-/* Text Container */
+.un-code {
+  font-size: var(--type-scale-01);
+  background: var(--color-grey-100);
+  color: var(--color-black);
+  height: calc(var(--baseline-scale-unit) * 2);
+  line-height: calc(var(--baseline-scale-unit) * 2);
+  display: inline-block;
+  padding: 0 var(--space-xs);
+}
+
+/* Titles */
+.un-title-01 {
+  font-size: var(--type-scale-03);
+  font-weight: var(--weight-bold);
+}
+.un-title-02 {
+  font-size: var(--type-scale-04);
+  font-weight: var(--weight-bold);
+}
+.un-title-03 {
+  font-size: var(--type-scale-05);
+  letter-spacing: -0.018em;
+  font-weight: var(--weight-bold);
+}
+.un-title-04 {
+  font-size: var(--type-scale-06);
+  letter-spacing: -0.019em;
+  font-weight: var(--weight-bold);
+}
+.un-title-05 {
+  font-size: var(--type-scale-07);
+  letter-spacing: -0.021em;
+  font-weight: var(--weight-bold);
+}
+.un-title-06 {
+  font-size: var(--type-scale-08);
+  letter-spacing: -0.022em;
+  font-weight: var(--weight-bold);
+}
+
+.un-large-title-01 {
+  font-size: var(--type-scale-09);
+  letter-spacing: -0.022em;
+  font-weight: var(--weight-bold);
+}
+.un-large-title-02 {
+  font-size: var(--type-scale-10);
+  letter-spacing: -0.022em;
+  font-weight: var(--weight-bold);
+}
+.un-large-title-03 {
+  font-size: var(--type-scale-11);
+  letter-spacing: -0.022em;
+  font-weight: var(--weight-bold);
+}
+
 .un-text-container > * + * {
   margin-top: var(--space-m);
 }
 
-/* Headings */
-.un-heading-07 {
-  font-size: var(--type-scale-11);
-  font-weight: var(--weight-bold);
-  line-height: calc(var(--baseline-scale-unit) * 10);
-  letter-spacing: -0.022em;
-}
-
-.un-heading-06 {
-  font-size: var(--type-scale-10);
-  font-weight: var(--weight-bold);
-  letter-spacing: -0.022em;
-}
-
-.un-heading-05 {
-  font-size: var(--type-scale-09);
-  font-weight: var(--weight-bold);
-  letter-spacing: -0.022em;
-}
-
-.un-heading-04 {
-  font-size: var(--type-scale-08);
-  font-weight: var(--weight-bold);
-  letter-spacing: -0.022em;
-}
-
-.un-heading-03 {
-  font-size: var(--type-scale-07);
-  font-weight: var(--weight-bold);
-  letter-spacing: -0.021em;
-}
-
-.un-heading-02 {
-  font-size: var(--type-scale-06);
-  font-weight: var(--weight-bold);
-  letter-spacing: -0.019em;
-}
-
-.un-heading-01 {
-  font-size: var(--type-scale-05);
-  font-weight: var(--weight-bold);
-  letter-spacing: -0.018em;
-}
-
-/* Subheadings */
 .un-subheading-01 {
   font-size: var(--type-scale-03);
   font-weight: var(--weight-bold);
@@ -628,13 +643,27 @@ body {
   line-height: calc(var(--baseline-scale-unit) * 3);
 }
 
+/* Generic */
+a {
+  color: var(--color-primary-500);
+}
+a:hover {
+  color: var(--color-primary-800);
+}
+
 /* Main Header */
 .main-header {
   background: var(--color-black);
   color: var(--color-white);
-  padding: var(--space-xl);
+  padding: 0 var(--space-xl);
+  height: calc(var(--baseline-scale-unit) * 18);
+  display: flex;
+  align-items: center;
 }
-
+.main-header a, .main-header a:hover {
+  color: var(--color-white);
+  text-decoration: underline;
+}
 .main-header__title {
   text-transform: lowercase;
   font-weight: var(--weight-bold);
@@ -642,22 +671,41 @@ body {
 
 /* Main Nav */
 .main-nav {
-  height: calc(var(--space-unit) * 3);
+  height: calc($space-unit * 3);
   padding: var(--space-m);
   background: var(--color-grey-900);
   color: var(--color-white);
 }
 
 /* Intro */
+.introduction {
+  padding: var(--space-xl);
+}
+
 .brand {
   letter-spacing: -0.05em;
   display: block;
   margin-bottom: var(--space-xl);
 }
 
+.current-version {
+  font-size: var(--type-scale-02);
+  margin-top: var(--space-l);
+  font-weight: var(--weight-bold);
+}
+
 /* Table of Contents */
 .toc {
   padding: 0 var(--space-xl);
+}
+.toc > * + * {
+  margin-top: var(--space-m);
+}
+.toc__link {
+  font-size: var(--type-scale-02);
+}
+.toc ul ul {
+  padding-left: var(--space-s);
 }
 
 /* Sections */
@@ -672,6 +720,38 @@ body {
 /* Articles */
 .docs-article > * + * {
   margin-top: var(--space-m);
+}
+
+/* Mixin Utilities  */
+.text-preset-01 {
+  font-size: var(--type-scale-01);
+}
+
+.text-preset-02 {
+  font-size: var(--type-scale-02);
+}
+
+.text-preset-03 {
+  font-size: var(--type-scale-03);
+}
+
+.text-preset-04 {
+  font-size: var(--type-scale-04);
+}
+
+.text-preset-05 {
+  font-size: var(--type-scale-05);
+  letter-spacing: -0.018em;
+}
+
+.text-preset-06 {
+  font-size: var(--type-scale-06);
+  letter-spacing: -0.019em;
+}
+
+.text-preset-07 {
+  font-size: var(--type-scale-07);
+  letter-spacing: -0.021em;
 }
 
 /*# sourceMappingURL=docs.css.map */

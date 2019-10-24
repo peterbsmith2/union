@@ -11,15 +11,21 @@
 @import 'utils/tokens';
 
 
+/* Mixins & Functions
+   ========================================================================== */
+@import 'utils/mixins';
+@import 'utils/functions';
+
+
 /* Base Styling
    ========================================================================== */
 @import 'base/generic';
 
 /* Components
    ========================================================================== */
-
+@import 'components/code';
+@import 'components/title';
 @import 'components/text-container';
-@import 'components/heading';
 @import 'components/subheading';
 
 
