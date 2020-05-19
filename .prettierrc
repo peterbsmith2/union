@@ -1,3 +1,8 @@
 {
-  "proseWrap": "never"
+	"svelteSortOrder": "scripts-styles-markup",
+	"svelteStrictMode": true,
+	"svelteBracketNewLine": true,
+	"svelteAllowShorthand": false,
+	"useTabs": true,
+	"tabWidth": 2
 }
